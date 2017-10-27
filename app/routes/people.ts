@@ -1,3 +1,4 @@
+import { request } from 'http';
 import { emit } from 'cluster';
 import { 
     Route, Get, Post, Put, Delete, Exception, Body, Params, Query, Status
@@ -10,39 +11,41 @@ import {PeopleModel} from '../models';
 @Route("/people")
 export class People {
     @Get("/")
-    async getPeople(@Query query) {
-        console.log(query);
-        const response = await PeopleModel
-            .find((query.filter) ? JSON.parse(query.filter): {})
-            .sort((query.sort) ? JSON.parse(query.sort): {})
-            .limit((query.limit) ? parseInt(query.limit): null)
-            .catch((error) => {
-                console.log(error);
-                throw Exception(500, error); 
-            });
-        console.log(response);
-        return response;
+    async getPeople(@Query('query') query) {
+        const request = JSON.parse(query);
+        try {
+            const response = await PeopleModel
+            .find(request.filter)
+            .sort(request.sort)
+            .limit(request.limit);
+            console.log(response);
+            return response;
+        } catch(error) {
+            throw Exception(500, error);
+        }
     }
     @Post("/create")
     @Emits
     async addPeople(@Body person, @Emit emit) {
-        const response = await PeopleModel.create(person)
-            .catch((error) => {
-                console.log(error);
-                throw Exception(500, error);
-            });
-        emit(person);
-        return response;
+        try {
+            const response = await PeopleModel.create(person);
+            console.log(response);
+            emit(person);
+            return response;
+        } catch(error) {
+            throw Exception(500, error);
+        }
     }
     @Delete("/:id")
     @Emits
     async deletePeople(@Params("id") id, @Emit emit) {
-        const response = await PeopleModel.findOne({_id: id})
-            .remove()
-            .catch((error) => {
-                throw Exception(500, error);
-            });
-        emit(id);
-        return response;
+        try {
+            const response = await PeopleModel.findOne({_id: id})
+            .remove();
+            emit(id);
+            return response;
+        } catch (error) {
+            throw Exception(500, error);
+        }
     }
 }
