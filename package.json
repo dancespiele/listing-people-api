@@ -1,0 +1,43 @@
+{
+  "name": "listing-people-api",
+  "version": "1.0.0",
+  "description": "test project api",
+  "main": "app/index.js",
+  "directories": {
+    "src": "app",
+    "test": "test"
+  },
+  "dependencies": {
+    "moment": "^2.19.1",
+    "pyrite-server": "^0.5.1",
+    "pyrite-server-emitter": "0.0.7"
+  },
+  "devDependencies": {
+    "@types/es6-shim": "^0.31.35",
+    "@types/node": "^8.0.47",
+    "code": "^5.1.0",
+    "lab": "^15.1.0",
+    "lab-transform-typescript": "^3.0.1",
+    "pyrite-connect": "^0.3.0",
+    "pyrite-connect-emitter": "^0.1.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "typegoose": "^3.6.0"
+  },
+  "scripts": {
+    "test": "lab -v --sourcemaps --transform node_modules/lab-transform-typescript",
+    "build": "tsc -w",
+    "start": "sh run.sh",
+    "watch": "concurrently --kill-others \"npm run build\" \"npm run start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dancespiele/listing-people-api.git"
+  },
+  "author": "Dancespiele",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dancespiele/listing-people-api/issues"
+  },
+  "homepage": "https://github.com/dancespiele/listing-people-api#readme"
+}
