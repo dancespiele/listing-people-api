@@ -1,5 +1,5 @@
 export const addPerson = {
-    uri: 'http://localhost:8000/people/create',
+    uri: 'http://localhost:8000/people',
     method: 'POST',
     json: true,
     body: {name: "camion", superPower: true, rich: false, genius: false},

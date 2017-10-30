@@ -1,12 +1,13 @@
 import { PyriteServer } from 'pyrite-server';
+import { EmitterPlugin } from "pyrite-server-emitter";
 import * as mongoose from 'mongoose';
 import { globalConfig } from './config';
-import { EmitterPlugin } from 'pyrite-server-emitter';
 
 const server: PyriteServer = new PyriteServer({
     port: globalConfig.service.port,
     routes: "/routes",
-    plugins: [new EmitterPlugin()]
+    plugins: [new EmitterPlugin()],
+    cors: ['http://localhost:3000']
 });
   
   
