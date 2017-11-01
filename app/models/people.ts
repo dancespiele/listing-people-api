@@ -1,7 +1,7 @@
 import { prop, Typegoose, ModelType, InstanceType } from 'typegoose';
 
 class People extends Typegoose {
-    @prop()
+    @prop({required: true})
     name: string;
 
     @prop()

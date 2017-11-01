@@ -3,8 +3,6 @@ import * as Lab from 'lab';
 import * as Code from 'code';
 import * as request from 'request-promise';
 import {addPerson, getPerson, delPerson} from './requests';
-import {PyriteConnect} from 'pyrite-connect';
-import {EmitterPlugin} from 'pyrite-connect-emitter';
 
 const lab = Lab.script();
 
@@ -15,9 +13,8 @@ lab.experiment('People', () => {
   
   lab.test('add person has to be success', async () => {
     const res = await request(addPerson);
-    id = res.body._id;
-    Code.expect(res.statusCode).to.be.equal(200);
-    Code.expect(res.body.name).to.be.equal("camion");
+    id = res._id;
+    Code.expect(id).to.be.a.string();
   });
   lab.test('get person added last time', async () =>{
     const filter = {filter: {

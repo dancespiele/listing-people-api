@@ -3,7 +3,6 @@ export const addPerson = {
     method: 'POST',
     json: true,
     body: {name: "camion", superPower: true, rich: false, genius: false},
-    resolveWithFullResponse: true
 }
 
 export const delPerson = {

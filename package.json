@@ -16,7 +16,7 @@
     "@types/es6-shim": "^0.31.35",
     "@types/node": "^8.0.47",
     "code": "^5.1.0",
-    "lab": "^15.1.0",
+    "lab": "^15.1.1",
     "lab-transform-typescript": "^3.0.1",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
