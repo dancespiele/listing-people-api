@@ -1,4 +1,4 @@
-# LISTING PEOPLE BACKEND ###
+# Listing People Api
 This is a backend example using [pyrite server framework](https://github.com/pyrite-framework/pyrite-server).
 
 ## Requirements
