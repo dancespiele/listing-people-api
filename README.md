@@ -5,6 +5,7 @@ This is a backend example using [pyrite server framework](https://github.com/pyr
 
 * MongoDB
 * Node
+* Typescript
 
 ## Download
 
@@ -15,6 +16,7 @@ This is a backend example using [pyrite server framework](https://github.com/pyr
 Enter to the folder and execute:
 
 ```
+    npm install -g typescript
     npm install -g nodemon
     npm install
 ```
