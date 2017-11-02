@@ -23,7 +23,7 @@ Enter to the folder and execute:
 
 Create database in mongo with the name ***listingPeople***, create an user asigned to it and a collection ***people***.
 
-Create a script file run.sh in root path of the project:
+Create a script file ***run.sh*** in root path of the project:
 
 ```
 export SERVICE_PORT=8000
