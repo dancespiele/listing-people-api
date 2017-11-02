@@ -40,6 +40,6 @@ nodemon dist/app/index.js
 
 ## RUN INTEGRATIONS TEST
 
-With the project runing
+With the project runing:
 
 `npm test`
